@@ -16,6 +16,8 @@ app.use('/exams', examRoutes);
 app.use('/questions', questionRoutes);
 app.use('/results', resultRoutes);
 
+console.log('App initialized successfully');
+
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
     console.log(`Server running on port http://localhost:${PORT}`);
