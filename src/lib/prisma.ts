@@ -1,13 +1,11 @@
 import "dotenv/config";
-import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../../generated/prisma/client.js'
+import { PrismaClient } from '@prisma/client'
 
 const connectionString = `${process.env.DATABASE_URL}`
 
-console.log('Initializing Prisma client...');
-
-const adapter = new PrismaPg({ connectionString })
-const prisma = new PrismaClient({ adapter })
+const prisma = new PrismaClient({
+  datasourceUrl: connectionString
+})
 
 console.log('Prisma client initialized successfully');
 
